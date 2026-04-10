@@ -1,0 +1,71 @@
+type UpdateJobArgs = 
+ record {
+   company: text;
+   description: text;
+   id: JobId;
+   isActive: bool;
+   jobType: JobType;
+   location: text;
+   requirements: vec text;
+   responsibilities: vec text;
+   salaryRange: text;
+   title: text;
+ };
+type Timestamp = int;
+type JobsPage = 
+ record {
+   jobs: vec Job;
+   page: nat;
+   pageSize: nat;
+   total: nat;
+ };
+type JobType = 
+ variant {
+   Corporate;
+   Government;
+   Private;
+ };
+type JobId = nat;
+type JobFilters = 
+ record {
+   jobType: opt JobType;
+   location: opt text;
+   page: nat;
+   pageSize: nat;
+   searchQuery: opt text;
+ };
+type Job = 
+ record {
+   company: text;
+   description: text;
+   id: JobId;
+   isActive: bool;
+   jobType: JobType;
+   location: text;
+   postedDate: Timestamp;
+   requirements: vec text;
+   responsibilities: vec text;
+   salaryRange: text;
+   title: text;
+ };
+type CreateJobArgs = 
+ record {
+   company: text;
+   description: text;
+   jobType: JobType;
+   location: text;
+   requirements: vec text;
+   responsibilities: vec text;
+   salaryRange: text;
+   title: text;
+ };
+service : {
+  createJob: (args: CreateJobArgs) -> (Job);
+  deleteJob: (id: JobId) -> (bool);
+  getAdminPrincipal: () -> (opt principal) query;
+  getJobById: (id: JobId) -> (opt Job) query;
+  getJobs: (filters: JobFilters) -> (JobsPage) query;
+  isAdmin: () -> (bool) query;
+  setAdmin: (newAdmin: principal) -> ();
+  updateJob: (args: UpdateJobArgs) -> (bool);
+}

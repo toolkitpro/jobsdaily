@@ -1,0 +1,33 @@
+// Version: 1.0.0
+type JobId__339598917 = Nat;
+type JobId__567733654 = JobId__339598917;
+type JobType__229172236 = {#Corporate; #Government; #Private};
+type Job__848768964 =
+  {
+    company : Text;
+    description : Text;
+    id : JobId__567733654;
+    isActive : Bool;
+    jobType : JobType__229172236;
+    location : Text;
+    postedDate : Timestamp__838678315;
+    requirements : [Text];
+    responsibilities : [Text];
+    salaryRange : Text;
+    title : Text
+  };
+type Nat__490723111 = Nat__920180692;
+type Nat__920180692 = Nat;
+type Timestamp__301639476 = Int;
+type Timestamp__838678315 = Timestamp__301639476;
+actor {
+  stable adminPrincipalRef : {var val : ?Principal};
+  stable jobs :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?Job__848768964]];
+      var elementIndex : Nat__490723111
+    };
+  stable nextJobId : Nat;
+  stable nextJobIdRef : {var val : Nat}
+};

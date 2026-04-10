@@ -1,0 +1,159 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-display: "Bricolage Grotesque", sans-serif;
+    --font-body: "DM Sans", sans-serif;
+    --font-mono: "Geist Mono", monospace;
+    --radius: 0.625rem;
+
+    --background: 0.97 0.01 0;
+    --foreground: 0.2 0.01 0;
+    --card: 0.99 0.01 0;
+    --card-foreground: 0.2 0.01 0;
+    --popover: 0.99 0.01 0;
+    --popover-foreground: 0.2 0.01 0;
+
+    --primary: 0.42 0.18 254;
+    --primary-foreground: 0.99 0.01 0;
+
+    --secondary: 0.5 0.15 195;
+    --secondary-foreground: 0.99 0.01 0;
+    --muted: 0.92 0.01 0;
+    --muted-foreground: 0.5 0.01 0;
+
+    --accent: 0.62 0.22 28;
+    --accent-foreground: 0.99 0.01 0;
+
+    --destructive: 0.55 0.22 25;
+    --destructive-foreground: 0.98 0 0;
+
+    --border: 0.88 0.01 0;
+    --input: 0.88 0.01 0;
+    --ring: 0.62 0.22 28;
+
+    --chart-1: 0.42 0.18 254;
+    --chart-2: 0.5 0.15 195;
+    --chart-3: 0.62 0.22 28;
+    --chart-4: 0.55 0.22 25;
+    --chart-5: 0.65 0.15 144;
+
+    --sidebar: 0.97 0.01 0;
+    --sidebar-foreground: 0.2 0.01 0;
+    --sidebar-primary: 0.42 0.18 254;
+    --sidebar-primary-foreground: 0.99 0.01 0;
+    --sidebar-accent: 0.92 0.01 0;
+    --sidebar-accent-foreground: 0.35 0.01 0;
+    --sidebar-border: 0.88 0.01 0;
+    --sidebar-ring: 0.62 0.22 28;
+
+    --job-govt: 0.35 0.12 255;
+    --job-private: 0.5 0.15 195;
+    --job-corporate: 0.48 0.18 280;
+  }
+
+  .dark {
+    --background: 0.12 0.01 0;
+    --foreground: 0.92 0.01 0;
+    --card: 0.16 0.01 0;
+    --card-foreground: 0.92 0.01 0;
+    --popover: 0.2 0.01 0;
+    --popover-foreground: 0.92 0.01 0;
+
+    --primary: 0.68 0.2 254;
+    --primary-foreground: 0.12 0.01 0;
+
+    --secondary: 0.65 0.18 195;
+    --secondary-foreground: 0.92 0.01 0;
+    --muted: 0.2 0.01 0;
+    --muted-foreground: 0.58 0.01 0;
+
+    --accent: 0.7 0.24 28;
+    --accent-foreground: 0.12 0.01 0;
+
+    --destructive: 0.65 0.19 22;
+    --destructive-foreground: 0.145 0 0;
+
+    --border: 0.25 0.01 0;
+    --input: 0.25 0.01 0;
+    --ring: 0.7 0.24 28;
+
+    --chart-1: 0.68 0.2 254;
+    --chart-2: 0.65 0.18 195;
+    --chart-3: 0.7 0.24 28;
+    --chart-4: 0.65 0.19 22;
+    --chart-5: 0.75 0.17 144;
+
+    --sidebar: 0.16 0.01 0;
+    --sidebar-foreground: 0.92 0.01 0;
+    --sidebar-primary: 0.68 0.2 254;
+    --sidebar-primary-foreground: 0.12 0.01 0;
+    --sidebar-accent: 0.2 0.01 0;
+    --sidebar-accent-foreground: 0.85 0.01 0;
+    --sidebar-border: 0.25 0.01 0;
+    --sidebar-ring: 0.7 0.24 28;
+
+    --job-govt: 0.65 0.18 255;
+    --job-private: 0.65 0.18 195;
+    --job-corporate: 0.62 0.2 280;
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+}
+
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("/assets/fonts/BricolageGrotesque.woff2") format("woff2");
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "DM Sans";
+  src: url("/assets/fonts/DMSans.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Geist Mono";
+  src: url("/assets/fonts/GeistMono.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+
+@layer utilities {
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .badge-govt {
+    @apply inline-flex items-center px-3 py-1 rounded-sm text-white text-xs font-semibold;
+    background-color: oklch(var(--job-govt));
+  }
+
+  .badge-private {
+    @apply inline-flex items-center px-3 py-1 rounded-sm text-white text-xs font-semibold;
+    background-color: oklch(var(--job-private));
+  }
+
+  .badge-corporate {
+    @apply inline-flex items-center px-3 py-1 rounded-sm text-white text-xs font-semibold;
+    background-color: oklch(var(--job-corporate));
+  }
+
+  .job-card {
+    @apply bg-card border border-border rounded-lg p-5 hover:shadow-md transition-smooth;
+  }
+
+  .input-search {
+    @apply w-full px-4 py-3 rounded-md border border-input bg-background text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent transition-smooth;
+  }
+}

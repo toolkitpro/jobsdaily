@@ -1,0 +1,22 @@
+{
+  "overview": "A daily job listing portal for Government, Private, and Corporate jobs. Visitors can search and filter open positions; admins can log in to post, edit, and manage job listings via a dedicated admin panel.",
+  "features": [
+    "Browse government, private, and corporate jobs",
+    "Search by job title and location",
+    "Filter by job type, location, and salary range",
+    "Full job detail pages with description and requirements",
+    "Protected admin panel with Internet Identity login",
+    "Post, edit, and delete job listings from admin panel",
+    "Responsive design for mobile and desktop"
+  ],
+  "category": "jobs-recruitment",
+  "tags": [
+    "jobs",
+    "recruitment",
+    "government-jobs",
+    "private-jobs",
+    "admin-panel",
+    "job-portal"
+  ],
+  "last_updated": "2026-04-10T14:58:20.355Z"
+}
